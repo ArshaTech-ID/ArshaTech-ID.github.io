@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviev Avivy — SAP ABAP & Full-Stack Developer</title>
+<meta name="description" content="Aviev Avivy — SAP ABAP (IS-H/ISH-Med), Full-Stack, IoT & AI/Automation Engineer. Portfolio of hospital systems, POS, IoT monitoring and AI tooling.">
+<style>
+  :root{
+    --bg:#0b1120; --bg2:#0f172a; --card:#131c31; --line:#243049;
+    --ink:#e8eefc; --muted:#94a3b8; --brand:#3b82f6; --brand2:#22d3ee; --green:#34d399;
+    --shadow:0 10px 40px rgba(0,0,0,.35);
+  }
+  [data-theme="light"]{
+    --bg:#f6f8fc; --bg2:#eef2f9; --card:#ffffff; --line:#e2e8f0;
+    --ink:#0f1b33; --muted:#5b6b82; --brand:#2563eb; --brand2:#0891b2; --green:#059669;
+    --shadow:0 10px 30px rgba(20,40,80,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  h2.title{font-size:30px;margin-bottom:8px;letter-spacing:.3px}
+  h2.title span{color:var(--brand)}
+  .sub{color:var(--muted);margin-bottom:34px;max-width:640px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.5px}
+  .logo b{color:var(--brand)}
+  .navlinks{display:flex;gap:22px;align-items:center}
+  .navlinks a{color:var(--muted);font-size:14.5px;font-weight:500;transition:.2s}
+  .navlinks a:hover{color:var(--ink)}
+  .themebtn{cursor:pointer;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:7px 10px;font-size:14px}
+  .burger{display:none;cursor:pointer;font-size:22px;background:none;border:none;color:var(--ink)}
+
+  /* HERO */
+  .hero{padding:90px 0 70px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 80% -10%,color-mix(in srgb,var(--brand) 22%,transparent),transparent),radial-gradient(500px 260px at 0% 20%,color-mix(in srgb,var(--brand2) 16%,transparent),transparent);pointer-events:none}
+  .hero .eyebrow{color:var(--brand2);font-weight:600;letter-spacing:2px;font-size:13px;text-transform:uppercase}
+  .hero h1{font-size:52px;line-height:1.08;margin:12px 0;font-weight:800}
+  .hero h1 .grad{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .role{font-size:19px;color:var(--muted);max-width:620px}
+  .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:12px 22px;border-radius:10px;font-weight:600;font-size:14.5px;transition:.2s;border:1px solid transparent;cursor:pointer}
+  .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;box-shadow:var(--shadow)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--brand);color:var(--brand)}
+  .stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+  .stats .s .n{font-size:30px;font-weight:800;color:var(--ink)}
+  .stats .s .l{font-size:13px;color:var(--muted)}
+
+  /* SKILLS */
+  .skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .skillcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .skillcard h3{font-size:15px;color:var(--brand);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .chip{display:inline-block;background:color-mix(in srgb,var(--brand) 12%,transparent);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:5px 12px;font-size:12.5px;margin:3px 4px 3px 0}
+
+  /* PROJECTS */
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.25s;position:relative;overflow:hidden}
+  .pcard:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--brand) 50%,var(--line));box-shadow:var(--shadow)}
+  .pcard .badge{font-size:11.5px;font-weight:600;color:var(--brand2);text-transform:uppercase;letter-spacing:1px}
+  .pcard h3{font-size:19px;margin:8px 0 6px}
+  .pcard p{color:var(--muted);font-size:14px;margin-bottom:12px}
+  .pcard .tstack{display:flex;flex-wrap:wrap;gap:6px}
+  .pcard .tstack span{font-size:11.5px;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--muted)}
+  .pcard .live{position:absolute;top:20px;right:20px;font-size:11px;color:var(--green);font-weight:700}
+  .plinks{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .plink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:8px;border:1px solid var(--line);transition:.2s}
+  .plink.demo{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}
+  .plink.demo:hover{transform:translateY(-2px)}
+  .plink.repo{background:transparent;color:var(--ink)}
+  .plink.repo:hover{border-color:var(--brand);color:var(--brand)}
+  .plink.soon{opacity:.55;cursor:default}
+
+  /* EXPERIENCE */
+  .exp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .expcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .expcard h3{font-size:16px;color:var(--brand)}
+  .expcard .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+  .expcard ul{margin-left:18px;font-size:14px;color:var(--muted)}
+  .expcard li{margin-bottom:5px}
+  .expcard li b{color:var(--ink)}
+
+  /* CONTACT */
+  .contact-box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:40px;text-align:center}
+  .contact-box h2{font-size:28px;margin-bottom:8px}
+  .contact-box p{color:var(--muted);margin-bottom:24px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .clink{display:flex;align-items:center;gap:9px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 18px;font-weight:600;font-size:14px;transition:.2s}
+  .clink:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-2px)}
+
+  footer{padding:34px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:820px){
+    .hero h1{font-size:38px}
+    .exp{grid-template-columns:1fr}
+    .navlinks{position:fixed;inset:62px 0 auto 0;background:var(--bg2);flex-direction:column;padding:18px 22px;gap:14px;border-bottom:1px solid var(--line);display:none}
+    .navlinks.open{display:flex}
+    .burger{display:block}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Aviev<b>.</b>Avivy</div>
+    <div class="navlinks" id="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">SAP</a>
+      <a href="#contact">Contact</a>
+      <button class="themebtn" id="theme" title="Toggle theme">🌙</button>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal">SAP ABAP · Full-Stack · IoT · AI</div>
+    <h1 class="reveal">Hi, I'm <span class="grad">Aviev Avivy</span><br>I build systems that run hospitals.</h1>
+    <p class="role reveal">SAP ABAP Developer (IS-H / ISH-Med) and full-stack engineer. I ship enterprise SAP enhancements, hospital information systems, IoT monitoring platforms, and AI-based tooling — end to end.</p>
+    <div class="cta reveal">
+      <a href="#projects" class="btn primary">View Projects</a>
+      <a href="#contact" class="btn ghost">Get in touch</a>
+    </div>
+    <div class="stats reveal">
+      <div class="s"><div class="n">30+</div><div class="l">SAP contributions</div></div>
+      <div class="s"><div class="n">7+</div><div class="l">Full-stack apps</div></div>
+      <div class="s"><div class="n">~94%</div><div class="l">KPI overall H1-2026</div></div>
+      <div class="s"><div class="n">4</div><div class="l">domains (SAP · Web · IoT · AI)</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <h2 class="title">About <span>me</span></h2>
+    <p class="sub">A developer with a dual specialization.</p>
+    <p style="max-width:760px;color:var(--muted);font-size:15.5px">
+      I work as a <b style="color:var(--ink)">SAP ABAP developer for hospital modules (IS-H / ISH-Med)</b> in an enterprise healthcare environment, and I build full-stack products from scratch on the side — hospital information systems, POS, IoT monitoring, and AI tooling. I'm comfortable across the whole delivery cycle: requirement analysis, technical design, development, kernel-level debugging (SQL trace, update task / LUW), and cloud deployment. I care about <b style="color:var(--ink)">real root-cause analysis</b> and clean, traceable documentation.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <h2 class="title">Tech <span>Stack</span></h2>
+    <p class="sub">Tools I use to design, build, debug and ship.</p>
+    <div class="skillgrid">
+      <div class="skillcard"><h3>◆ SAP</h3>
+        <span class="chip">ABAP OO</span><span class="chip">ADT</span><span class="chip">IS-H / ISH-Med</span><span class="chip">SmartForms</span><span class="chip">Adobe Form</span><span class="chip">DMS/NDOC</span><span class="chip">ST05</span><span class="chip">SM13</span><span class="chip">LUW/COMMIT</span><span class="chip">ATC</span><span class="chip">STMS</span>
+      </div>
+      <div class="skillcard"><h3>◆ Frontend</h3>
+        <span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">HTML/CSS</span>
+      </div>
+      <div class="skillcard"><h3>◆ Backend</h3>
+        <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">REST</span>
+      </div>
+      <div class="skillcard"><h3>◆ Database</h3>
+        <span class="chip">PostgreSQL</span><span class="chip">Partitioning</span><span class="chip">BRIN</span><span class="chip">RLS</span><span class="chip">Materialized Views</span><span class="chip">Double-entry</span>
+      </div>
+      <div class="skillcard"><h3>◆ IoT</h3>
+        <span class="chip">ESP8266</span><span class="chip">DHT22</span><span class="chip">MQTT</span><span class="chip">Mosquitto</span>
+      </div>
+      <div class="skillcard"><h3>◆ AI / Tooling</h3>
+        <span class="chip">LLM / RAG</span><span class="chip">Ollama</span><span class="chip">Whisper STT</span><span class="chip">MCP</span><span class="chip">Python</span>
+      </div>
+      <div class="skillcard"><h3>◆ Cloud / DevOps</h3>
+        <span class="chip">Vercel</span><span class="chip">Railway</span><span class="chip">Neon</span><span class="chip">Docker</span><span class="chip">Git / GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap reveal">
+    <h2 class="title">Featured <span>Projects</span></h2>
+    <p class="sub">A selection of things I've designed and built.</p>
+    <div class="pgrid">
+
+      <div class="pcard">
+        <span class="live">● LIVE</span>
+        <div class="badge">Full-Stack · HIS</div>
+        <h3>his-app — SIMRS</h3>
+        <p>A complete hospital information system built from scratch: 36 backend / 35 frontend modules, 30 menus. Finance with double-entry ledger, clinical modules, Patient 360°, RAG clinical assistant, voice-to-text (Whisper), and MCU Event with webcam check-in.</p>
+        <div class="tstack"><span>React</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Vercel</span><span>Railway</span><span>Neon</span></div>
+        <div class="plinks">
+          <a class="plink demo" href="https://his-app-zeta.vercel.app" target="_blank" rel="noopener">↗ Live Demo</a>
+          <a class="plink repo" href="https://github.com/Battlewolf317/HIS-APP" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">SAP · ISH-Med</div>
+        <h3>SAP ABAP — Hospital Enterprise</h3>
+        <p>30+ enhancements across ISH-Med/PMD, Diet, Material Surgery, CSSD and MM. Strong on deep root-cause analysis — e.g. tracing a clinical-document integrity issue down to a standard COMMIT WORK using ST05 + LUW analysis.</p>
+        <div class="tstack"><span>ABAP OO</span><span>SmartForms</span><span>DMS/NDOC</span><span>ST05</span><span>Debugging</span></div>
+        <div class="plinks">
+          <span class="plink soon">🔒 Enterprise / internal</span>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">IoT · Monitoring</div>
+        <h3>Temperature Monitoring (IoT)</h3>
+        <p>Room/equipment temperature & humidity monitoring: ESP8266 + DHT22 → MQTT → Node → PostgreSQL → React. Production-grade DB (partitioning, BRIN, multi-tenant RLS), 2-level idempotent alerting, per-shift reports, device simulator + Docker E2E.</p>
+        <div class="tstack"><span>ESP8266</span><span>MQTT</span><span>Node.js</span><span>PostgreSQL</span><span>React</span></div>
+        <div class="plinks">
+          <span class="plink soon">↗ Live Demo (soon)</span>
+          <a class="plink repo" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">Full-Stack · POS</div>
+        <h3>Toko App — Minimarket POS</h3>
+        <p>Full point-of-sale: cashier shift, PO→GR→stock, stock opname, promo/discount, split multi-payment (QRIS/e-wallet), member loyalty, profit & loss, barcode scanner + label printing, CSV/PDF export.</p>
+        <div class="tstack"><span>React</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span></div>
+        <div class="plinks">
+          <span class="plink soon">↗ Live Demo (soon)</span>
+          <a class="plink repo" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">Full-Stack · Clinic</div>
+        <h3>Clinic Management App</h3>
+        <p>An outpatient clinic management system. Patient registration + queue, doctor consultation (anamnesis, diagnosis, treatment, prescription), pharmacy dispensing with automatic stock deduction, product/inventory master, and role-based access (receptionist / doctor / pharmacist / admin).</p>
+        <div class="tstack"><span>React</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span></div>
+        <div class="plinks">
+          <span class="plink soon">↗ Live Demo (soon)</span>
+          <a class="plink repo" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">Full-Stack · Productivity</div>
+        <h3>WorkTrack — Work Management</h3>
+        <p>Unified ticketing + Kanban. Drag & drop status board with auto history log, undo/redo (Ctrl+Z/Y), notifications, a Trello-style custom board with reordering, ticket linking and CSV export.</p>
+        <div class="tstack"><span>React</span><span>Express</span><span>PostgreSQL</span></div>
+        <div class="plinks">
+          <span class="plink soon">↗ Live Demo (soon)</span>
+          <a class="plink repo" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="badge">AI · Automation</div>
+        <h3>SINTA + SAP ADT MCP Server</h3>
+        <p>An AI SDLC pipeline generating SAP technical docs end-to-end (FS→TS→Timeline→Test Script→TD→.docx), plus a Node/TypeScript MCP server for programmatic ABAP: read/write, activate, ATC, unit tests, transport — with conflict detection.</p>
+        <div class="tstack"><span>TypeScript</span><span>Node.js</span><span>MCP</span><span>Python</span><span>SAP ADT</span></div>
+        <div class="plinks">
+          <a class="plink repo" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <h2 class="title">SAP <span>Experience</span></h2>
+    <p class="sub">Selected enhancements across hospital modules in an enterprise healthcare environment.</p>
+    <div class="exp">
+      <div class="expcard">
+        <h3>ISH-Med / PMD (Clinical)</h3>
+        <div class="meta">Clinical documentation & patient care</div>
+        <ul>
+          <li><b>Patient care documentation (PMD)</b> — enhancements for clinical monitoring forms, data carry-over between versions, and mandatory-field validation.</li>
+          <li><b>Clinical data integrity</b> — root-cause analysis of document/transaction issues via SQL trace (ST05) and LUW/COMMIT analysis.</li>
+          <li><b>Reports & pricing</b> — clinical reports and service price determination logic.</li>
+        </ul>
+      </div>
+      <div class="expcard">
+        <h3>Diet · CSSD · MM</h3>
+        <div class="meta">Nutrition, sterilization & materials</div>
+        <ul>
+          <li><b>Diet management</b> — diet type handling, print forms (SmartForms), and accurate room/bed data on printed notes.</li>
+          <li><b>CSSD (PP)</b> — instrument return handling in sterilization workflow.</li>
+          <li><b>Material Management</b> — material reservation and supplier listing.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-box">
+      <h2>Let's build something</h2>
+      <p>Open to SAP ABAP, full-stack, IoT and AI/automation projects.</p>
+      <div class="contact-links">
+        <a class="clink" href="mailto:aviv.317@gmail.com">✉️ aviv.317@gmail.com</a>
+        <a class="clink" href="https://wa.me/6285719489420" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="clink" href="https://github.com/Battlewolf317" target="_blank" rel="noopener">⌨ GitHub</a>
+        <a class="clink" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">in LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Aviev Avivy · SAP ABAP · Full-Stack · IoT · AI — built &amp; deployed by me.
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // theme toggle
+  const root=document.documentElement, tbtn=document.getElementById('theme');
+  const saved=localStorage.getItem('theme'); if(saved){root.setAttribute('data-theme',saved);}
+  tbtn.textContent = root.getAttribute('data-theme')==='light'?'☀️':'🌙';
+  tbtn.addEventListener('click',()=>{
+    const t=root.getAttribute('data-theme')==='light'?'dark':'light';
+    root.setAttribute('data-theme',t); localStorage.setItem('theme',t);
+    tbtn.textContent=t==='light'?'☀️':'🌙';
+  });
+  // burger
+  const burger=document.getElementById('burger'), nav=document.getElementById('nav');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
